@@ -49,31 +49,15 @@ function Home() {
         }
     }
   }
-  const socket = new SockJS('http://localhost:8080/api/user/websocket-endpoint');
-    const stompClient = new Client({
-      webSocketFactory: () => socket,
-      debug: (str) => {
-        console.log(str);
-      },
-      reconnectDelay:   5000,
-      heartbeatIncoming:   4000,
-      heartbeatOutgoing:   4000,
-    });
+ 
+    
 
-    stompClient.onConnect = (frame) => {
-      stompClient.subscribe('/topic/notifications', (notification) => {
-        console.log('Received notification:', notification.body);
-        // Update the state with the new notification
-        setNotifications((prevNotifications) => [...prevNotifications, notification.body]);
-      });
-    };
+    
 
-    stompClient.activate();
+   
 
     // Clean up the effect by disconnecting the WebSocket connection when the component unmounts
-    return () => {
-      stompClient.deactivate();
-    };
+    
   }, []);
   const storeBookingData = async (formData) => {
     try {
