@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.42227d00.css",
+    "main.js": "/static/js/main.eff54f55.js",
+    "static/media/california.png": "/static/media/california.6f6812b0c4b25a80ef4f.png",
+    "static/media/munnar.png": "/static/media/munnar.9c40bc41b5e9d7c7f7ba.png",
+    "static/media/mumbai.png": "/static/media/mumbai.c9077733a77eed501819.png",
+    "static/media/logo.png": "/static/media/logo.53866068ac3952f436d9.png",
+    "static/media/hotellogin.png": "/static/media/hotellogin.5ced5bcf716229ddfe56.png",
+    "static/media/room.png": "/static/media/room.e4f59fa2455031a5a6b7.png",
+    "static/media/delhi.png": "/static/media/delhi.e78d574f077a3bc5ce55.png",
+    "static/media/user.png": "/static/media/user.78539b9827409ac9cf46.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.42227d00.css.map": "/static/css/main.42227d00.css.map",
+    "main.eff54f55.js.map": "/static/js/main.eff54f55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42227d00.css",
+    "static/js/main.eff54f55.js"
+  ]
+}
