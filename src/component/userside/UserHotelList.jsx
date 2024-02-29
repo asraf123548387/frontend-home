@@ -25,7 +25,7 @@ function UserHotelList() {
     useEffect(() => {
       const fetchAllHotel = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/user/hotelList');
+          const response = await axios.get('https://www.emoh.tech/api/user/hotelList');
     
           if (response.status >= 200 && response.status < 300) {
             setHotel(response.data);

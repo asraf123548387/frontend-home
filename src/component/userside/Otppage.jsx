@@ -28,7 +28,7 @@ function Otppage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/api/verifyOtp', {
+      const response = await axios.post('https://www.emoh.tech/api/verifyOtp', {
         email,
         otp: verificationCode.join(''),
 

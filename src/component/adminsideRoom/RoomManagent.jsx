@@ -19,7 +19,7 @@ function RoomManagement() {
   const fetchAllRooms = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.get('http://localhost:8080/api/admin/roomList', {
+      const response = await axios.get('https://www.emoh.tech/api/admin/roomList', {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const openEditRoomModal=async (roomId)=>{
   const token =localStorage.getItem('token');
   try {
 
-    const response = await axios.get(`http://localhost:8080/api/admin/room/${roomId}`, {
+    const response = await axios.get(`https://www.emoh.tech/api/admin/room/${roomId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',

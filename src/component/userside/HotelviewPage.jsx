@@ -59,10 +59,10 @@ function HotelviewPage() {
     const headers = {
       Authorization: `Bearer ${token}`
     };
-    axios.post('http://localhost:8080/api/userReviews', reviewData, { headers })
+    axios.post('https://www.emoh.tech/api/userReviews', reviewData, { headers })
     .then(response => {
 
-            axios.get(`http://localhost:8080/api/user/reviewsListByHotel?hotelId=${hotelId}`)
+            axios.get(`https://www.emoh.tech/api/user/reviewsListByHotel?hotelId=${hotelId}`)
                     .then(response => {
                         setReviews(response.data);
                         const totalRating = response.data.reduce((acc, curr) => acc + curr.rating, 0);
@@ -96,7 +96,7 @@ function HotelviewPage() {
 
     const fetchImages = async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/api/user/hotelImages/${hotelId}`);
+          const response = await axios.get(`https://www.emoh.tech/api/user/hotelImages/${hotelId}`);
 
           setImages(response.data);
           setIsLoadingImages(false); 
@@ -113,7 +113,7 @@ function HotelviewPage() {
     useEffect(()=>{
      const fetchHotelDetails = async()=>{
         try{
-            const response =await axios.get(`http://localhost:8080/api/user/hotelSingle/${hotelId}`);
+            const response =await axios.get(`https://www.emoh.tech/api/user/hotelSingle/${hotelId}`);
             setHotelDetails(response.data);
             setIsLoadingHotelDetails(false);
 
@@ -129,7 +129,7 @@ function HotelviewPage() {
   useEffect(()=>{
     const fetchRooms =async()=>{
         try{
-            const response =await axios.get(`http://localhost:8080/api/user/hotelRooms/${hotelId}`)
+            const response =await axios.get(`https://www.emoh.tech/api/user/hotelRooms/${hotelId}`)
             setRooms(response.data);
             setIsLoadingRooms(false);
             console.log(response.data)
@@ -143,7 +143,7 @@ function HotelviewPage() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/user/reviewsListByHotel?hotelId=${hotelId}`)
+    axios.get(`https://www.emoh.tech/api/user/reviewsListByHotel?hotelId=${hotelId}`)
       .then(response => {
         setReviews(response.data);
         const totalRating = response.data.reduce((acc, curr) => acc + curr.rating, 0);
@@ -172,7 +172,7 @@ function HotelviewPage() {
 
     // Send a request to the backend to add the hotel to the wishlist
     try {
-        const response = await axios.post('http://localhost:8080/api/wishlist/add', {
+        const response = await axios.post('https://www.emoh.tech/api/wishlist/add', {
             userId: userId,
             hotelId: hotelId,
         }, {

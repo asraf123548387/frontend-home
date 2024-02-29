@@ -41,7 +41,7 @@ const AddRoomModal = ({ isOpen, onSuccess }) => {
       // Make a POST request to your backend API
       const token = localStorage.getItem('token');
       console.log(room);
-      const response = await axios.post('http://localhost:8080/api/admin/adminAddRoom', room, {
+      const response = await axios.post('https://www.emoh.tech/api/admin/adminAddRoom', room, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -82,7 +82,7 @@ const AddRoomModal = ({ isOpen, onSuccess }) => {
         const headers = {
           'Authorization': `Bearer ${token}`,
         };
-        const response = await axios.get(`http://localhost:8080/api/admin/adminHotelListInAddRoom/${userId}`, { headers });
+        const response = await axios.get(`https://www.emoh.tech/api/admin/adminHotelListInAddRoom/${userId}`, { headers });
         setHotels(response.data);
         console.log(response.data);
       } catch (error) {

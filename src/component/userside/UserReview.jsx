@@ -9,7 +9,7 @@ function UserReview() {
     useEffect(() => {
         const fetchUserReviews = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/userReviewss/${userId}`, {
+                const response = await axios.get(`https://www.emoh.tech/api/userReviewss/${userId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }

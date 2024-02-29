@@ -24,7 +24,7 @@ function Home() {
       useEffect(() => {
         const fetchAllHotel = async () => {
           try {
-            const response = await axios.get('http://localhost:8080/api/user/hotelList');
+            const response = await axios.get('https://www.emoh.tech/api/user/hotelList');
             if (response.status >= 200 && response.status < 300) {
               setHotel(response.data);
             }
@@ -62,7 +62,7 @@ function Home() {
   const storeBookingData = async (formData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:8080/api/onlineBooking', formData, {
+      const response = await axios.post('https://www.emoh.tech/api/onlineBooking', formData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`

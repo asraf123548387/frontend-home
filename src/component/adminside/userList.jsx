@@ -8,8 +8,8 @@ function UserList() {
   const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSidebar, setShowSidebar] = useState(true);
-  const blockUrl = 'http://localhost:8080/api/admin/block';
-  const unblockUrl = 'http://localhost:8080/api/admin/unblock';
+  const blockUrl = 'https://www.emoh.tech/api/admin/block';
+  const unblockUrl = 'https://www.emoh.tech/api/admin/unblock';
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
@@ -59,7 +59,7 @@ function UserList() {
 
     const fetchAllUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/admin/users', {
+        const response = await axios.get('https://www.emoh.tech/api/admin/users', {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',

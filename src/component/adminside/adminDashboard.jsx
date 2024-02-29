@@ -11,7 +11,7 @@ function AdminDashboard() {
     const token = localStorage.getItem('token'); // Assuming the token is stored under 'token'
 
     if (userId && token) {
-      axios.get(`http://localhost:8080/api/admin/countHotel/${userId}`, {
+      axios.get(`https://www.emoh.tech/api/admin/countHotel/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

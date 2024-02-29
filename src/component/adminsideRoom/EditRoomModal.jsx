@@ -25,7 +25,7 @@ function EditRoomModal({ isOpen, roomData, onSuccess, onClose }) {
       };
 
       const response = await axios.put(
-        `http://localhost:8080/api/admin/room/${roomData.roomId}`,
+        `https://www.emoh.tech/api/admin/room/${roomData.roomId}`,
         editedRoom,
         { headers }
       );

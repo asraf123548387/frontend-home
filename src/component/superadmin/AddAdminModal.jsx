@@ -62,7 +62,7 @@ const AddAdminModal = ({ isOpen, onRequestClose,onSuccess  }) => {
             'Authorization': `Bearer ${token}`,
           };
         // Make a POST request to your backend API to register the admin
-        const response = await axios.post('http://localhost:8080/api/SAdmin/addAdmin', user, { headers })
+        const response = await axios.post('https://www.emoh.tech/api/SAdmin/addAdmin', user, { headers })
           
       
 

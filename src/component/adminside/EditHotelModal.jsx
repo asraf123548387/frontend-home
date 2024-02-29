@@ -55,7 +55,7 @@ function EditHotelModal({isOpen,hotelData,onSuccess,onClose}) {
             };
     
             const response = await axios.put(
-              `http://localhost:8080/api/admin/hotel/${hotelData.hotelId}`,
+              `https://www.emoh.tech/api/admin/hotel/${hotelData.hotelId}`,
               editedHotel,
               { headers }
             );

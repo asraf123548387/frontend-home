@@ -47,7 +47,7 @@ function CheckOut() {
       const headers = {
         Authorization: `Bearer ${token}`,
       };
-      axios.post('http://localhost:8080/api/roomBooking', formData, { headers })
+      axios.post('https://www.emoh.tech/api/roomBooking', formData, { headers })
       .then(response => {
         // Handle successful response
         console.log('Payment successful:', response.data);
@@ -93,7 +93,7 @@ function CheckOut() {
           const stripe = await stripePromise;
           const amount = formData.totalPrice; // Assuming formData is defined elsewhere
           localStorage.setItem('formData', JSON.stringify(formData));
-          const response = await axios.post('http://localhost:8080/api/payments/create-checkout-session', {
+          const response = await axios.post('https://www.emoh.tech/api/payments/create-checkout-session', {
             amount: amount
           }, {
             headers: {

@@ -20,7 +20,7 @@ function HotelImageModal({ isOpen, onClose, hotelId }) {
 
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/admin/hotel/image/${hotelId}`,
+        `https://www.emoh.tech/api/admin/hotel/image/${hotelId}`,
          imageUrl ,
         {
           headers: {

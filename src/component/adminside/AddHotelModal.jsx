@@ -78,7 +78,7 @@ const validateForm = () => {
                 ...hotel,
                 userId: userId,
             };
-            const response = await axios.post('http://localhost:8080/api/admin/savehotel', hotelWithUserId, { headers });
+            const response = await axios.post('https://www.emoh.tech/api/admin/savehotel', hotelWithUserId, { headers });
 
             if (response.status === 200) {
                 console.log("Hotel Added Successfully");

@@ -8,8 +8,8 @@ function SadminDashboard() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isAddAdminModalOpen, setIsAddAdminModalOpen] = useState(false);
     const [blockedUsers, setBlockedUsers] = useState({});
-    const blockUrl = 'http://localhost:8080/api/admin/block';
-    const unblockUrl = 'http://localhost:8080/api/admin/unblock';
+    const blockUrl = 'https://www.emoh.tech/api/admin/block';
+    const unblockUrl = 'https://www.emoh.tech/api/admin/unblock';
   
     const handleButtonClick = async (userId) => {
       const confirmed = window.confirm(`Are you sure you want to ${blockedUsers[userId] ? 'unblock' : 'block'} this user?`);
@@ -50,7 +50,7 @@ function SadminDashboard() {
     
         const fetchAllAdmins = async () => {
           try {
-            const response = await axios.get('http://localhost:8080/api/SAdmin/getAllAdmin', {
+            const response = await axios.get('https://www.emoh.tech/api/SAdmin/getAllAdmin', {
               headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',

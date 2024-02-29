@@ -32,7 +32,7 @@ function UserSerchHotelList() {
               return;
             }
             // Append the destination to the URL as a query parameter
-            const response = await axios.get(`http://localhost:8080/api/user/hotelListByLocation?location=${encodeURIComponent(destination)}`);
+            const response = await axios.get(`https://www.emoh.tech/api/user/hotelListByLocation?location=${encodeURIComponent(destination)}`);
       
             if (response.status >=   200 && response.status <   300) {
               setHotel(response.data);

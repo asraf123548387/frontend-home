@@ -21,7 +21,7 @@ function Wishlist() {
             };
     
             // Make the API call to fetch the wishlist
-            const response = await axios.get(`http://localhost:8080/api/wishlist/list/${userId}`, { headers });
+            const response = await axios.get(`https://www.emoh.tech/api/wishlist/list/${userId}`, { headers });
     
             // Update the state with the fetched wishlist
             setWishlist(response.data);

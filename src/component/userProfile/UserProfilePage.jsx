@@ -24,7 +24,7 @@ function UserProfilePage() {
     try {
       const userId = localStorage.getItem('userId');
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:8080/api/user/profile/${userId}`, {
+      const response = await axios.get(`https://www.emoh.tech/api/user/profile/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -49,7 +49,7 @@ function UserProfilePage() {
       const token=localStorage.getItem('token');
       localStorage.setItem('userName',newName)
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.put(`http://localhost:8080/api/user/profile/updateUser`,{userName:newName,id:userId})
+      axios.put(`https://www.emoh.tech/api/user/profile/updateUser`,{userName:newName,id:userId})
       .then(response => {
         // Handle success response from the backend
         console.log('User name updated successfully');
@@ -79,7 +79,7 @@ const handleSavePhone = () => {
   const token=localStorage.getItem('token');
   
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  axios.put(`http://localhost:8080/api/user/profile/updatePhone`,{mobile:newPhone,id:userId})
+  axios.put(`https://www.emoh.tech/api/user/profile/updatePhone`,{mobile:newPhone,id:userId})
   .then(response => {
     // Handle success response from the backend
     console.log('phone updated successfully');
@@ -106,7 +106,7 @@ const handleSaveAddress = () => {
   const token=localStorage.getItem('token');
   
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  axios.put(`http://localhost:8080/api/user/profile/updateAddress`,{address:newAddress,id:userId})
+  axios.put(`https://www.emoh.tech/api/user/profile/updateAddress`,{address:newAddress,id:userId})
   .then(response => {
     // Handle success response from the backend
     console.log('address successfully');
@@ -159,7 +159,7 @@ const handleSaveDateOfBirth = () => {
   const token=localStorage.getItem('token');
   
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  axios.put(`http://localhost:8080/api/user/profile/updateDateOfBirth`,{dateOfBirth:newDateOfBirth,id:userId})
+  axios.put(`https://www.emoh.tech/api/user/profile/updateDateOfBirth`,{dateOfBirth:newDateOfBirth,id:userId})
   .then(response => {
     // Handle success response from the backend
     console.log('address successfully');
