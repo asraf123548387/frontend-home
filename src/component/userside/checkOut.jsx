@@ -161,7 +161,7 @@ function CheckOut() {
             Navigate('/login')
             Swal.fire("please sign In !");
         }else{
-        axios.get(`http://localhost:8080/api/userCheckOut/getRoom/${roomId}`,
+        axios.get(`https://www.emoh.tech/api/userCheckOut/getRoom/${roomId}`,
         {
             headers: {
                 Authorization: `Bearer ${token}` // Include token in request headers
@@ -171,7 +171,7 @@ function CheckOut() {
             setRoomDetails(response.data);
             console.log(response.data);
             // Fetch hotel details based on the room
-            axios.get(`http://localhost:8080/api/userCheckOut/getHotel/${response.data.hotelId}`, {
+            axios.get(`https://www.emoh.tech/api/userCheckOut/getHotel/${response.data.hotelId}`, {
                 headers: {
                     Authorization: `Bearer ${token}` // Include token in request headers
                 }

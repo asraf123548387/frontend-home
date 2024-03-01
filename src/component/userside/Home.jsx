@@ -15,8 +15,7 @@ import { faTag } from '@fortawesome/free-solid-svg-icons';
 import BannerInHomePage from './BannerInHomePage';
 import SearchDate from './SearchDate';
 import SliderInDifferentCategory from './SliderInDifferentCategory';
-import SockJS from 'sockjs-client';
-import { Client } from '@stomp/stompjs';
+
 function Home() {
     const[hotel,setHotel]=useState([]);
     const [notifications, setNotifications] = useState([]);
@@ -50,14 +49,6 @@ function Home() {
     }
   }
  
-    
-
-    
-
-   
-
-    // Clean up the effect by disconnecting the WebSocket connection when the component unmounts
-    
   }, []);
   const storeBookingData = async (formData) => {
     try {
