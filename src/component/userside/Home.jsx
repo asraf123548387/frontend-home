@@ -109,28 +109,36 @@ function Home() {
 </div>
 <div>
 <Slider {...settings} className='ml-5 custom-slider'>
-      {hotel.map((hotelItem, index) => (
-       <Link to={`/userHotelList/${hotelItem.hotelId}`} key={index} className='w-1/4 h-96  mr-4 overflow-hidden no-underline bg-white rounded-lg shadow-md hover:shadow-2xl transition duration-500 ease-in-out'> 
-          <img
-            src={hotelItem.images}
-            alt={`Hotel ${index + 1}`}
-            style={{ objectFit: 'cover', width: '90%', height: '50%' }} className='rounded-tl-2xl rounded-tr-2xl mx-2'
-          />
-          <div className='h-8'>
-            <span className='pl-2 text-black mt-2'>8.0/10 <span className='font-thin text-sm'>Very good</span> </span>
+  {hotel
+    // Filter out duplicates based on hotelId
+    .filter((hotelItem, index, self) => 
+      index === self.findIndex((t) => (
+        t.hotelId === hotelItem.hotelId
+      ))
+    )
+    .map((hotelItem, index) => (
+      <Link to={`/userHotelList/${hotelItem.hotelId}`} key={index} className='w-1/4 h-96  mr-4 overflow-hidden no-underline bg-white rounded-lg shadow-md hover:shadow-2xl transition duration-500 ease-in-out'> 
+        <img
+          src={hotelItem.images}
+          alt={`Hotel ${index + 1}`}
+          style={{ objectFit: 'cover', width: '90%', height: '50%' }} className='rounded-tl-2xl rounded-tr-2xl mx-2'
+        />
+        <div className='h-8'>
+          <span className='pl-2 text-black mt-2'>8.0/10 <span className='font-thin text-sm'>Very good</span> </span>
           <div className='text-black ml-2 mt-1 font-serif font-semibold'>{hotelItem.hotelName}</div>
           <div className='text-black ml-2 font-semiboldmt-4'>{hotelItem.location}</div>
           <div className='  text-black ml-2 text-xl '>₹{hotelItem.price} <sup><del>₹5000</del></sup></div> 
           <div className='text-black text-xs ml-2'>per night</div>
           <div className='text-black text-xs ml-2'>including & taxes</div>
           <div className="bg-purple-500 w-24 h-6 mt-2 ml-2 rounded-md">
-              <FontAwesomeIcon icon={faTag} className='pl-2' style={{ color: 'white' }} />
-              <span className='pl-2 ' style={{color:'white'}}>20 <sup>% off</sup></span>
+            <FontAwesomeIcon icon={faTag} className='pl-2' style={{ color: 'white' }} />
+            <span className='pl-2 ' style={{color:'white'}}>20 <sup>% off</sup></span>
           </div>
-          </div>
-        </Link>
-      ))}
-    </Slider>
+        </div>
+      </Link>
+    ))}
+</Slider>
+
 </div>
 </section>
 <Footer/>
