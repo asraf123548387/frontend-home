@@ -2,10 +2,12 @@ import React from 'react'
 import Navbar from './Navbar'
 import { useState,useEffect } from 'react'
 import axios from 'axios';
+import Swal from 'sweetalert2';
 function BookingHistory() {
     const [bookings, setBookings] = useState([]);
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token');
+    const [refreshKey, setRefreshKey] = useState(0);
     const cancelBooking = (bookingId) => {
         Swal.fire({
             text: "Are you sure you want to cancel?",
