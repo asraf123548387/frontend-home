@@ -22,20 +22,36 @@ function CheckOut() {
  
     const openModal = (event) => {
       event.preventDefault();
-      const formIsValid = Object.keys(formData).every(field => validateField(field, formData[field]) === '');
-      if (!formIsValid) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "please fill the field for contacting You!",
-         
-        });
-        return;
+     
+      // Initialize an empty object to collect validation errors
+      const errors = {};
+     
+      // Iterate over each field in the form data
+      Object.keys(formData).forEach(field => {
+         // Validate the field and collect the error message
+         const errorMessage = validateField(field, formData[field]);
+         // If there's an error message, add it to the errors object
+         if (errorMessage) {
+           errors[field] = errorMessage;
+         }
+      });
+     
+      // Check if there are any errors
+      if (Object.keys(errors).length > 0) {
+         // Convert the errors object into a string to display in the alert
+         const errorText = Object.values(errors).join(', ');
+     
+         Swal.fire({
+           icon: "error",
+           title: "Oops...",
+           text: `Please correct the following errors: ${errorText}`,
+         });
+         return;
       }
-
-
+     
+      // If there are no errors, open the modal
       setIsModalOpen(true);
-    };
+     };
   
     const closeModal = () => {
       setIsModalOpen(false);
@@ -51,7 +67,7 @@ function CheckOut() {
       .then(response => {
         // Handle successful response
         console.log('Payment successful:', response.data);
-        Swal.fire("Room is booked!");
+        Swal.fire("Room is booked!,Please look in the booking history for additional details");
         closeModal();
       })
       .catch(error => {
@@ -131,16 +147,22 @@ function CheckOut() {
     }, [formData.checkInDate, formData.checkOutDate, roomDetails.pricePerNight]);
     const validateField = (name, value) => {
       switch (name) {
-        case 'guestName':
-          return value ? '' : 'Name is required';
-        case 'email':
-          return /\S+@\S+\.\S+/.test(value) ? '' : 'Invalid email address';
-        case 'mobileNumber':
-          return value ? '' : 'Mobile number is required';
-        default:
-          return '';
+         case 'guestName':
+           // Check if the name is provided and has a minimum length
+           return value && value.length >= 2 ? '' : 'Name is required and must be at least 2 characters long';
+         case 'email':
+           // Check if the email is in a valid format and is not too long
+           const emailRegex = /\S+@\S+\.\S+/;
+           const emailLength = 254; // Maximum length for an email address
+           return emailRegex.test(value) && value.length <= emailLength ? '' : 'Invalid email address or exceeds maximum length';
+         case 'mobileNumber':
+           // Check if the mobile number is provided and is in a specific format (e.g., 10 digits)
+           const mobileNumberRegex = /^\d{10}$/; // Example: exactly 10 digits
+           return value && mobileNumberRegex.test(value) ? '' : 'Mobile number is required and must be 10 digits';
+         default:
+           return '';
       }
-    };
+     };
     // Event handler function to update form data
   const handleChange = (event) => {
     const { name, value } = event.target;

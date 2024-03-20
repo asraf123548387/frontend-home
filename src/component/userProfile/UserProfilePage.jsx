@@ -19,7 +19,8 @@ function UserProfilePage() {
 
   const[editDateOfBirth,setEditDateOfBirth]=useState(false);
   const[newDateOfBirth,setNewDateOfBirth]=useState('');
-
+  const [errorMessage, setErrorMessage] = useState('');
+  const [phoneErrorMessage, setPhoneErrorMessage] = useState('');
   const fetchUserData = async () => {
     try {
       const userId = localStorage.getItem('userId');
@@ -44,6 +45,21 @@ function UserProfilePage() {
   //// the below code is handling the the userName
 
   const handleSaveClick = () => {
+        // Clear any previous error message
+ setErrorMessage('');
+
+ // Validate the new name
+ if (!newName || newName.trim() === '') {
+    setErrorMessage('Name cannot be empty');
+    return; // Exit the function if the name is invalid
+ }
+
+ // Additional validation can be added here as needed
+ // For example, checking the length of the name
+ if (newName.length < 2) {
+    setErrorMessage('Name must be at least 2 characters long');
+    return; // Exit the function if the name is too short
+ }
       // Handle saving the new name
       const userId=localStorage.getItem('userId');
       const token=localStorage.getItem('token');
@@ -74,6 +90,14 @@ const handleEditPhone = () => {
 };
 
 const handleSavePhone = () => {
+  setPhoneErrorMessage('');
+
+  // Validate the new phone number
+  const phoneRegex = /^\d{10}$/; // Example: exactly 10 digits
+  if (!newPhone || newPhone.trim() === '' || !phoneRegex.test(newPhone)) {
+     setPhoneErrorMessage('Please enter a valid phone number');
+     return; // Exit the function if the phone number is invalid
+  }
   // Handle saving the new name
   const userId=localStorage.getItem('userId');
   const token=localStorage.getItem('token');
@@ -204,7 +228,7 @@ const handleSaveDateOfBirth = () => {
                         />
                     ) : (
                         <p className="flex-1">{user.userName}</p>
-                    )}
+                    )}  {errorMessage && <p className="text-red-500 text-xs">{errorMessage}</p>}
                 </div>
                 <div className='w-2/12 text-right'>
                     {isEditing ? (
@@ -247,7 +271,7 @@ const handleSaveDateOfBirth = () => {
                         />
                     ) : (
                         <p className="flex-1">{user.mobile}</p>
-                    )}
+                    )}{phoneErrorMessage && <p className="text-red-500 text-xs">{phoneErrorMessage}</p>}
                 </div>
                 <div className='w-2/12 text-right'>
                     {editPhone ? (

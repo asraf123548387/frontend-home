@@ -292,7 +292,7 @@ function HotelviewPage() {
     </div>
   <div className='w-full md:w-10/12 mt-2 flex flex-col md:flex-row flex-wrap md:pl-7'>
     {rooms.map(room => (
-      <div className='w-96 md:w-72 bg-white h-auto mr-4 rounded-2xl ml-3 md:ml-0'>
+      <div className='w-96 md:w-80 bg-white h-auto mr-4 rounded-2xl ml-3 md:ml-0'>
         <div className='bg-blue-800 rounded-tr-2xl rounded-tl-2xl'>
           <span className='ml-3 text-white'>popular among travellers</span>
         </div>
